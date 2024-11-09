@@ -23,9 +23,9 @@ def fft_cal_fourier_est(process, x, n, h, L, T):
     ret = np.diff(process) # return 
     for i in range(len(x)):
         
-        LR = np.sqrt( (1 / h) * gaussian_kernel((process[0:n-1] - x[i]) / h) ) * ret
+        R = np.sqrt( (1 / h) * gaussian_kernel((process[0:n-1] - x[i]) / h) ) * ret
         
-        fft_v = fft(LR)
+        fft_v = fft(R)
         # np.savetxt("fft_v.csv", fft_v, delimiter=",")
         fft_coef_0 = fft_v[0]
         fft_front = fft_v[1:L+1]
@@ -33,8 +33,6 @@ def fft_cal_fourier_est(process, x, n, h, L, T):
         fft_def = np.concatenate([fft_back, fft_v[0:L+1]])
         
         fft_coef = np.sum(fft_def * np.flipud(fft_def))
-        # np.savetxt("fourier_def.csv", fft_def, delimiter=",")
-        
         fourier_coef[i] = fft_coef * (1 / (2*L + 1))
 
         LR[i] += (1/h) * np.sum(gaussian_kernel((process[0:n] - x[i]) / h)) * (T / n)

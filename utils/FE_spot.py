@@ -30,7 +30,7 @@ def cal_FE_day_est(process, x, timestamp, ND, T, n, h, n_obs_intraday):
 def cal_FE_whole_est(process, x, timestamp, ND, T, n, h, n_obs_intraday, N):
 
     FE_whole_est = np.zeros(len(x))
-    L = int(np.floor(N / 2))
+    L = int(np.floor(N**(1/2)))
     M = 100
     vol = cal_FE_fft_spot_vol(process, timestamp[0 : n-1 : n_obs_intraday], T, L, M)
     # vol = cal_FE_fft_spot_vol(process, timestamp[0 : n-1], T, L, M)
