@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.Functions import gaussian_kernel
+from utils.Functions import gaussian_kernel
 
 def cal_RV_est(process, x, ND, n, T, n_obs_intraday, h):
     RV_est = np.zeros(len(x))

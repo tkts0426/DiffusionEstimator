@@ -1,6 +1,6 @@
 import numpy as np
 
-from src.Functions import gaussian_kernel
+from utils.Functions import gaussian_kernel
 
 def cal_analytical_int(process, x, eta, gamma, n, h, T):
     

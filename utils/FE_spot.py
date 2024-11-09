@@ -1,7 +1,7 @@
 import numpy as np
 from numpy.fft import fft
 
-from src.Functions import gaussian_kernel
+from utils.Functions import gaussian_kernel
 
 def cal_FE_day_est(process, x, timestamp, ND, T, n, h, n_obs_intraday):
     
